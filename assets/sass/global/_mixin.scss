@@ -1,0 +1,24 @@
+@use "sass:math"; // dart-sassで割り算の「/」が使えなくなるので
+
+// ブレイクポイントの設定
+$breakpoints: (
+  "sm": "(width <= 600px)",
+  "md": "(width <= 768px)",
+  "lg": "(width <= 960px)",
+  "xl": "(width <= 1140px)",
+  // "sm": "(max-width: 600px)",
+  // "md": "(max-width: 768px)",
+  // "lg": "(max-width: 960px)",
+  // "xl": "(max-width: 1140px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// フォントサイズの設定
+@mixin fz($size: 24, $base: 16) {
+  font-size: math.div($size, $base) * 1rem;
+}
