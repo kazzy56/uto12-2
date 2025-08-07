@@ -1,0 +1,8 @@
+@use "../global" as *;
+
+.l-header {
+	@include mq(sm) {
+		// これいる？ 要らん、display:flexがないので、効いてない
+		justify-content: center;
+	}
+}
